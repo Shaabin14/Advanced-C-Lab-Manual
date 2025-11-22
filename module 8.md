@@ -16,7 +16,37 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    if (n == 1)
+        printf("one");
+    else if (n == 2)
+        printf("two");
+    else if (n == 3)
+        printf("three");
+    else if (n == 4)
+        printf("four");
+    else if (n == 5)
+        printf("five");
+    else if (n == 6)
+        printf("six");
+    else if (n == 7)
+        printf("seven");
+    else if (n == 8)
+        printf("eight");
+    else if (n == 9)
+        printf("nine");
+    else
+        printf("Greater than 9");
+
+    return 0;
+}
+```
 
 
 
@@ -24,7 +54,9 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="1194" height="364" alt="image" src="https://github.com/user-attachments/assets/8001517b-94bd-4430-a0f3-23cd33a326dc" />
+
+
 
 
 
@@ -47,7 +79,24 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[1000];
+    int freq[10] = {0};  
+    scanf("%s", str);
+    for (int i = 0; i < strlen(str); i++) {
+        if (str[i] >= '0' && str[i] <= '9') {
+            freq[str[i] - '0']++;  
+        }
+    }
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", freq[i]);
+    }
+}
+```
 
 
 
@@ -55,7 +104,8 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="1192" height="312" alt="image" src="https://github.com/user-attachments/assets/23c76a53-dbe3-4519-8232-530fe4046f21" />
+
 
 
 
@@ -84,7 +134,62 @@ Free the memory allocated for each string in s Free the memory allocated for s
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <string.h>
+
+
+void swap(char w[][50], int i, int j) {
+    char t[50];
+    strcpy(t, w[i]);
+    strcpy(w[i], w[j]);
+    strcpy(w[j], t);
+}
+
+
+void reverse(char w[][50], int l, int r) {
+    while (l < r) swap(w, l++, r--);
+}
+
+
+int next_permutation(char w[][50], int n) {
+    int i = n - 2;
+
+  
+    while (i >= 0 && strcmp(w[i], w[i + 1]) >= 0)
+        i--;
+    if (i < 0) return 0; 
+
+   
+    int j = n - 1;
+    while (strcmp(w[j], w[i]) <= 0)
+        j--;
+
+  
+    swap(w, i, j);
+    reverse(w, i + 1, n - 1);
+
+    return 1;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    char words[n][50];
+    for (int i = 0; i < n; i++)
+        scanf("%s", words[i]);
+
+   
+    do {
+        for (int i = 0; i < n; i++)
+            printf("%s ", words[i]);
+        printf("\n");
+    } while (next_permutation(words, n));
+
+    return 0;
+}
+```
 
 
 
@@ -92,7 +197,8 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="1185" height="452" alt="image" src="https://github.com/user-attachments/assets/c1aa1976-5343-4244-8978-75693dc706a2" />
+
 
 
 
@@ -117,7 +223,34 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+   
+    int size = n + (n - 1);
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+
+           
+            int minDist = i;
+            if (j < minDist) minDist = j;
+            if (size - 1 - i < minDist) minDist = size - 1 - i;
+            if (size - 1 - j < minDist) minDist = size - 1 - j;
+
+            printf("%d ", n - minDist);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+```
 
 
 
@@ -125,7 +258,8 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="1182" height="782" alt="image" src="https://github.com/user-attachments/assets/b718561a-5f7b-4c77-97c7-d1608171664d" />
+
 
 
 
@@ -156,7 +290,21 @@ o	Call the square() function and display the result.
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+void square();
+int main(){
+    
+    square();
+    return 0;
+}
+void square(){
+    int a;
+    scanf("%d",&a);
+    float ans = a*a;
+    printf("The square of %d is : %.2f",a,ans);
+}
+```
 
 
 
@@ -164,7 +312,8 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="939" height="307" alt="image" src="https://github.com/user-attachments/assets/a833b72d-5060-4143-b853-b47cec0fae88" />
+
 
 
 
